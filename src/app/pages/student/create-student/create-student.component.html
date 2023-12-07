@@ -1,18 +1,18 @@
-<div class="card " >
+<div class="card" >
   <div class="card-header">
     Cadastro de novo estudante
   </div>
-  <form class="row-cols-1">
+  <form class="row-cols-1" [formGroup]="formStudent">
     <div class="col-md-12">
-      <label for="inputEmail4" class="form-label" >Nome</label>
-      <input type="email" class="form-control" id="inputEmail4">
+      <label class="form-label" >Nome</label>
+      <input type="text" class="form-control" placeholder="Maria Luz"  formControlName="name">
     </div>
     <div class="col-md-12">
-      <label for="inputPassword4" class="form-label">Escola</label>
-      <input type="password" class="form-control" id="inputPassword4">
+      <label  class="form-label">Escola</label>
+      <input type="number" class="form-control" formControlName="schoolId">
     </div>
     <div class="col-12">
-      <button type="submit" class="btn btn-primary">criar</button>
+      <button type="submit" class="btn btn-primary" (click)="create()"> criar</button>
     </div>
   </form>
 </div>

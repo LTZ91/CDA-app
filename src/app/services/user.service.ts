@@ -13,7 +13,7 @@ export class UserService {
 
   login(user: IUser){
     console.log(user)
-    return this.httpclient.post<ILoginResponse>(`${API_URL}/Auths`, user)
+    return this.httpclient.post<ILoginResponse>(`${API_URL}/Account`, user)
 
   }
   isAuthenticated():boolean{

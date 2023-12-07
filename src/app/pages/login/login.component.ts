@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
@@ -9,7 +9,7 @@ import {UserService} from "../../services/user.service";
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
 
   constructor(
     private userService: UserService,
@@ -25,7 +25,7 @@ export class LoginComponent {
     })
   }
 
-  protected readonly onsubmit = onsubmit;
+  protected readonly onsubmit = onsubmit
 
   onSubmit() {
     this.userService.login(this.formLogin.value).subscribe(value => {

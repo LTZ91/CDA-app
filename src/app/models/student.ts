@@ -1,8 +1,8 @@
 export interface Student {
-  id: number,
+  id: 0,
   name: string,
-  schoolId : number,
+  schoolId: number;
   school: string,
-  averageMark: number,
-  situation: string
+  city: string,
+  averageMark: 0
 }

@@ -6,11 +6,9 @@ export interface ILoginResponse{
 }
 
 export interface IUser{
-
+  id: string,
   userName: string,
   fullName: string,
   phoneNumber: string,
-  dateOfBirth: 0,
-  email: string,
-  password: string
+  email: string
 }
