@@ -12,24 +12,24 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let students of listStudents ">
-    <td>{{students.id}}</td>
-    <td>{{students.name}}</td>
-    <td>{{students.school}}</td>
-    <td>{{students.city}}</td>
-    <td>{{students.averageMark}}</td>
+  <tr *ngFor="let student of listStudents ">
+    <td>{{student.id}}</td>
+    <td>{{student.name}}</td>
+    <td>{{student.school}}</td>
+    <td>{{student.city}}</td>
+    <td>{{student.averageMark}}</td>
     <th><span  type="button" class="material-icons edit"
-               (click)="onEdit(students)">
+               (click)="onEdit(student)">
       edit
     </span>
-      <span type="button" class="material-icons delete "  (click)="onDelete(students)">
+      <span type="button" class="material-icons delete "  (click)="onDelete(student)">
         delete
       </span></th>
   </tr>
   </tbody>
 </table>
 
-<div class="add-icon" (click)="adicionarItem()">
+<div class="add-icon"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="adicionarItem()">
 <span class="material-icons">add</span>
 </div>
 

@@ -8,6 +8,8 @@ import {ListAllStudentsComponent} from "./pages/student/list-all-students/list-a
 import {ListAllSchoolsComponent} from "./pages/school/list-all-schools/list-all-schools.component";
 import {ListAllCitiesComponent} from "./pages/city/list-all-cities/list-all-cities.component";
 import {ReadSubjectComponent} from "./pages/subject/read-subject/read-subject.component";
+import {UpdateStudentComponent} from "./pages/student/update-student/update-student.component";
+import {DeleteStudentComponent} from "./pages/student/delete-student/delete-student.component";
 
 export const routes: Routes = [
   {
@@ -29,6 +31,14 @@ export const routes: Routes = [
   {
     path:'create-student', component:
     CreateStudentComponent
+  },
+  {
+    path:'update-student', component:
+   UpdateStudentComponent
+  },
+  {
+    path:'delete-student', component:
+    DeleteStudentComponent
   },
   {
     path:'list-all-students', component:

@@ -36,4 +36,12 @@ export class StudentService {
     return this.httClient.put<Student>(`${API_URL}/Student/${student.id}`,student, option)
   }
 
+  deleteStudent(id: number){
+    const option = {headers: new HttpHeaders({
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      })}
+
+    return this.httClient.delete<Student>(`${API_URL}/Student/${id}`, option)
+  }
 }

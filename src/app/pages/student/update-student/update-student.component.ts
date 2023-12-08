@@ -8,6 +8,6 @@ import { CommonModule } from '@angular/common';
   templateUrl: './update-student.component.html',
   styleUrl: './update-student.component.scss'
 })
-export class UpdateStudentComponent {
+export class UpdateStudentComponent  {
 
 }

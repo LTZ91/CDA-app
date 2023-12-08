@@ -1,6 +1,9 @@
+<script src="create-student.component.ts"></script>
 <div class="card" >
-  <div class="card-header">
-    Cadastro de novo estudante
+  <div>
+    <h2 *ngIf="student">Actualizar Aluno</h2>
+    <h2 *ngIf="!student">Cadastrar Aluno</h2>
+
   </div>
   <form class="row-cols-1" [formGroup]="formStudent">
     <div class="col-md-12">
@@ -9,10 +12,19 @@
     </div>
     <div class="col-md-12">
       <label  class="form-label">Escola</label>
-      <input type="number" class="form-control" formControlName="schoolId">
+      <select formControlName="schoolId" class="form-select">
+        <option *ngFor="let school of allSchools" [value]="school.id">
+          {{school.name}}
+        </option>
+      </select>
     </div>
     <div class="col-12">
-      <button type="submit" class="btn btn-primary" (click)="create()"> criar</button>
+<!--      <button type="submit" class="btn btn-primary" (click)="create()"> criar</button>-->
+      <button type="submit"  [disabled]="formStudent.invalid" class="btn btn-primary botao" (click)="create()">
+        <span *ngIf="!student" >Criar</span>
+        <span *ngIf="student" >Actualizar</span>
+      </button>
+      <button type="submit" class="btn btn-danger" (click)="cancel()"> cancelar</button>
     </div>
   </form>
 </div>

@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {StudentService} from "../../../services/student.service";
 import {Router} from "@angular/router";
 import {Student} from "../../../models/student";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {CreateStudentComponent} from "../create-student/create-student.component";
+import {DeleteStudentComponent} from "../delete-student/delete-student.component";
 
 @Component({
   selector: 'app-list-all-students',
@@ -10,9 +13,10 @@ import {Student} from "../../../models/student";
 })
 export class ListAllStudentsComponent implements OnInit{
   constructor( private studentService: StudentService,
-               private router: Router){}
+               private router: Router,
+               public dialog: MatDialog){}
 
-
+  private dialogRef!: MatDialogRef<any>;
   listStudents!:  Student[];
 
   ngOnInit(): void {
@@ -22,15 +26,30 @@ export class ListAllStudentsComponent implements OnInit{
     })
   }
 
-  onEdit(clients: any) {
-
+  onEdit(student: Student) {
+    const modalRef = this.dialog.open(CreateStudentComponent)
+    // this.dialogRef=this.dialog.open(CreateStudentComponent);
+    // this.router.navigate(['/update-student'])
+    modalRef.componentInstance.student = student;
   }
 
-  onDelete(clients: any) {
+  onDelete(student: Student) {
+    const dialogRef = this.dialog.open(DeleteStudentComponent);
+    // this.dialogRef.componentInstance.student = student
+    // this.dialogRef.componentInstance.studentId = student.id
 
+    dialogRef.afterClosed().subscribe((x ) => {
+      if (x){
+        this.studentService.deleteStudent(student.id).subscribe()
+      }
+      else {
+        console.log('cancelado')
+      }
+    })
   }
 
   adicionarItem() {
-
+    this.dialogRef=this.dialog.open(CreateStudentComponent);
+    // this.router.navigate(['/create-student'])
   }
 }
