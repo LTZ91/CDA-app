@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
+import { NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {ListAllCitiesComponent} from "../city/list-all-cities/list-all-cities.component";
 
 @Component({
   selector: 'app-login',
@@ -14,8 +16,9 @@ export class LoginComponent implements OnInit{
   constructor(
     private userService: UserService,
     private formBuilder: FormBuilder,
-    private router: Router
-  ) { }
+    private router: Router,
+    private modalService: NgbModal
+){ }
   formLogin!:FormGroup;
 
   ngOnInit(): void {
@@ -34,7 +37,6 @@ export class LoginComponent implements OnInit{
         localStorage.setItem('userName', value.userName)
         localStorage.setItem('email', value.email)
         this.router.navigate(['/home'])
-        // console.log(value)
       }
     })
   }

@@ -22,6 +22,8 @@ import { ListAllStudentsComponent } from './pages/student/list-all-students/list
 import { ListAllStudentSubjectComponent } from './pages/studentSubject/list-all-student-subject/list-all-student-subject.component';
 import { ListAllSchoolsComponent } from './pages/school/list-all-schools/list-all-schools.component';
 import { ListAllCitiesComponent } from './pages/city/list-all-cities/list-all-cities.component';
+import {MatCardModule} from "@angular/material/card";
+import { ListByCityNameComponent } from './pages/school/list-by-city-name/list-by-city-name.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { ListAllCitiesComponent } from './pages/city/list-all-cities/list-all-ci
     ListAllStudentsComponent,
     ListAllStudentSubjectComponent,
     ListAllSchoolsComponent,
-    ListAllCitiesComponent
+    ListAllCitiesComponent,
+    ListByCityNameComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -48,6 +52,7 @@ import { ListAllCitiesComponent } from './pages/city/list-all-cities/list-all-ci
     MatSnackBarModule,
     NgbModule,
     CreateStudentComponent,
+    MatCardModule,
 
   ],
   providers: [],

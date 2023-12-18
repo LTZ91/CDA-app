@@ -5,6 +5,8 @@ import {Student} from "../../../models/student";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {CreateStudentComponent} from "../create-student/create-student.component";
 import {DeleteStudentComponent} from "../delete-student/delete-student.component";
+import {City} from "../../../models/city";
+import {School} from "../../../models/school";
 
 @Component({
   selector: 'app-list-all-students',
@@ -18,6 +20,7 @@ export class ListAllStudentsComponent implements OnInit{
 
   private dialogRef!: MatDialogRef<any>;
   listStudents!:  Student[];
+
 
   ngOnInit(): void {
     this.studentService.readAll().subscribe(value => {
@@ -48,8 +51,8 @@ export class ListAllStudentsComponent implements OnInit{
     })
   }
 
-  adicionarItem() {
-    this.dialogRef=this.dialog.open(CreateStudentComponent);
+  addItem() {
+ this.dialog.open(CreateStudentComponent);
     // this.router.navigate(['/create-student'])
   }
 }

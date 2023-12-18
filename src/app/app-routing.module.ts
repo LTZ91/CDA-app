@@ -10,6 +10,7 @@ import {ListAllCitiesComponent} from "./pages/city/list-all-cities/list-all-citi
 import {ReadSubjectComponent} from "./pages/subject/read-subject/read-subject.component";
 import {UpdateStudentComponent} from "./pages/student/update-student/update-student.component";
 import {DeleteStudentComponent} from "./pages/student/delete-student/delete-student.component";
+import {ListByCityNameComponent} from "./pages/school/list-by-city-name/list-by-city-name.component";
 
 export const routes: Routes = [
   {
@@ -47,6 +48,10 @@ export const routes: Routes = [
   {
     path:'list-all-schools', component:
     ListAllSchoolsComponent
+  },
+  {
+    path:'list-by-city-name/:name', component:
+    ListByCityNameComponent
   },
   {
     path:'list-all-cities', component:

@@ -22,6 +22,7 @@ export class CreateStudentComponent implements OnInit{
               private formBuilder: FormBuilder,
               private schoolService: SchoolService) {
   }
+
   formStudent!: FormGroup;
   student !: Student;
   allSchools! : School [];
@@ -35,7 +36,7 @@ export class CreateStudentComponent implements OnInit{
       this.formStudent = new FormGroup({
         id: new FormControl(this.student.id),
         name: new FormControl(this.student.name, Validators.required),
-        schoolId: new FormControl(this.student.school, Validators.required)
+        schoolId: new FormControl(this.student.schoolId, Validators.required)
       })
     }else{
       this.formStudent = new FormGroup({

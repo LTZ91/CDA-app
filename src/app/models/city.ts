@@ -1,4 +1,5 @@
 export interface City{
-  id: 0,
-  name: string
+  id: number,
+  name: string,
+  numberOfSchools: number,
 }

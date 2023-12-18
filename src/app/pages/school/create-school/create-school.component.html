@@ -1,1 +1,31 @@
-<p>create-school works!</p>
+<script src="create-school.component.html"></script>
+<div class="card" >
+  <div>
+    <h2 *ngIf="school">Actualizar Escola</h2>
+    <h2 *ngIf="!school">Cadastrar Escolar</h2>
+
+  </div>
+  <form class="row-cols-1" [formGroup]="formSchool">
+    <div class="col-md-12">
+      <label class="form-label" >Nome</label>
+      <input type="text" class="form-control" placeholder="Escola Secundaria..."  formControlName="name">
+    </div>
+<!--    <div class="col-md-12">-->
+<!--      <label  class="form-label">Cidade</label>-->
+<!--      <select formControlName="cityId" class="form-select">-->
+<!--        <option *ngFor="let city of cities" [value]="city.id">-->
+<!--          {{city.name}}-->
+<!--        </option>-->
+<!--      </select>-->
+<!--    </div>-->
+    <div class="col-12">
+      <!--      <button type="submit" class="btn btn-primary" (click)="create()"> criar</button>-->
+      <button type="submit"  [disabled]="formSchool.invalid" class="btn btn-primary botao" (click)="create()">
+        <span *ngIf="!school" >Criar</span>
+        <span *ngIf="school" >Actualizar</span>
+      </button>
+      <button type="submit" class="btn btn-danger" (click)="cancel()"> cancelar</button>
+    </div>
+  </form>
+</div>
+

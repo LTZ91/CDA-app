@@ -1,1 +1,31 @@
-<p>list-all-cities works!</p>
+<!--<div class="cardGroup">-->
+<!--  <div  *ngFor="let city of listCities" >-->
+<!--    <mat-card class="lista">-->
+<!--      <a routerLink="">-->
+<!--        <img mat-card-sm-image src="../../../assets/beira.png" class="foto" >-->
+
+<!--      </a>-->
+<!--      <mat-card-content>-->
+<!--        <mat-card-title-group>-->
+<!--          <mat-card-title> {{city.name}}</mat-card-title>-->
+<!--        </mat-card-title-group>-->
+<!--        <h6>escolas: {{city.numberOfSchools}}</h6>-->
+<!--      </mat-card-content>-->
+<!--    </mat-card>-->
+<!--  </div>-->
+
+<!--</div>-->
+<div class="">
+  <h2 class="h2" style="margin-left: 5%;">Escolha uma Cidade</h2>
+    <div class="cardGroup">
+        <div class="card" style="width: 12rem;"  *ngFor="let city of listCities">
+          <div class="card-body"  routerLink="/list-by-city-name/{{city.name}}">
+            <h2 class="card-title">{{city.name}}</h2>
+            <small>{{city.numberOfSchools}}</small>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+

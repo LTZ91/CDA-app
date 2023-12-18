@@ -1,4 +1,4 @@
-<script src="create-student.component.ts"></script>
+<!--<script src="create-student.component.ts"></script>-->
 <div class="card" >
   <div>
     <h2 *ngIf="student">Actualizar Aluno</h2>
@@ -11,7 +11,7 @@
       <input type="text" class="form-control" placeholder="Maria Luz"  formControlName="name">
     </div>
     <div class="col-md-12">
-      <label  class="form-label">Escola</label>
+      <label  class="form-label" >Escola</label>
       <select formControlName="schoolId" class="form-select">
         <option *ngFor="let school of allSchools" [value]="school.id">
           {{school.name}}
