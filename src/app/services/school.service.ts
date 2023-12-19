@@ -52,4 +52,13 @@ export class SchoolService {
     return this.httpClient.put<School>(`${API_URL}/School/${school.id}`,school, option)
   }
 
+  deleteSchool(id: number){
+    const option = {headers: new HttpHeaders({
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      })}
+
+    return this.httpClient.delete<School>(`${API_URL}/School/${id}`, option)
+  }
+
 }

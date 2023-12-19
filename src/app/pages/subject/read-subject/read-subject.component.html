@@ -1,1 +1,27 @@
-<p>read-subject works!</p>
+
+<table class="table table-striped">
+    <caption>Lista de Disciplinas</caption>
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Acções</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let subject of listSubjects ">
+        <td>{{subject.id}}</td>
+        <td>{{subject.name}}</td>
+        <th><span  type="button" class="material-icons edit" (click)="onEdit(subject)">
+      edit
+    </span>
+            <span type="button" class="material-icons delete "  (click)="onDelete(subject)">
+        delete
+      </span></th>
+    </tr>
+    </tbody>
+</table>
+<div class="add-icon"  (click)="addItem()">
+    <span class="material-icons">add</span>
+</div>
+

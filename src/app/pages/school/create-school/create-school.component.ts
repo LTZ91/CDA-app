@@ -35,7 +35,7 @@ export class CreateSchoolComponent implements OnInit {
       this.formSchool = new FormGroup({
         id: new FormControl(this.school.id),
         name: new FormControl(this.school.name, Validators.required),
-        cityId: new FormControl(this.school.cityId, Validators.required)
+        cityId: new FormControl(this.school.cityId,  Validators.required)
       })
     } else{
       if (this.city){

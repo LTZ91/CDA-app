@@ -7,6 +7,7 @@ import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {CreateSchoolComponent} from "../create-school/create-school.component";
 import {CityService} from "../../../services/city.service";
 import {City} from "../../../models/city";
+import {DeleteSchoolComponent} from "../delete-school/delete-school.component";
 
 @Component({
   selector: 'app-list-by-city-name',
@@ -51,8 +52,17 @@ export class ListByCityNameComponent implements  OnInit{
     modalRef.componentInstance.school = school;
   }
 
-  onDelete() {
+  onDelete(school: School) {
 
+      const dialogRef = this.dialog.open(DeleteSchoolComponent);
+      dialogRef.afterClosed().subscribe((x ) => {
+          if (x){
+              this.schoolService.deleteSchool(school.id).subscribe()
+          }
+          else {
+              console.log('cancelado')
+          }
+      })
   }
 
   adicionarItem(city: number) {

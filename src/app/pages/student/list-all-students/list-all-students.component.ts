@@ -5,8 +5,6 @@ import {Student} from "../../../models/student";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {CreateStudentComponent} from "../create-student/create-student.component";
 import {DeleteStudentComponent} from "../delete-student/delete-student.component";
-import {City} from "../../../models/city";
-import {School} from "../../../models/school";
 
 @Component({
   selector: 'app-list-all-students',
