@@ -1,4 +1,15 @@
-
+.add-icon {
+  position: fixed;
+  bottom: 60px;
+  left: 20px;
+  cursor: pointer;
+  background-color: #0a4275; /* Cor de fundo do ícone de adição */
+  color: #fff; /* Cor do ícone */
+  border-radius: 50%; /* Bordas arredondadas para um visual de botão */
+  padding: 10px;
+  font-size: 24px; /* Tamanho do ícone */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para efeito de elevação */
+}
 
 
 .cardGroup{
@@ -14,6 +25,10 @@
 
 
 
+.l-bg-cherry {
+  background: linear-gradient(to right, #493240, #f09) !important;
+  color: #fff;
+}
 
 
 

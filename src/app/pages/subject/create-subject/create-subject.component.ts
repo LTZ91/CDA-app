@@ -4,6 +4,7 @@ import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, V
 import {SubjectService} from "../../../services/subject.service";
 import {Router} from "@angular/router";
 import {Subject} from "../../../models/subject";
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-create-subject',
@@ -15,7 +16,8 @@ import {Subject} from "../../../models/subject";
 export class CreateSubjectComponent implements OnInit{
   constructor(public subjectService: SubjectService,
               private router: Router,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              private modalRef: MatDialogRef<any>) {
   }
 
   formSubject!: FormGroup;
@@ -41,7 +43,13 @@ export class CreateSubjectComponent implements OnInit{
     else {
       this.subjectService.createSubject(this.formSubject.value).subscribe()
     }
+    this.modalRef.close("true")
   }
 
 
+  cancel() {
+
+    this.modalRef.close(false);
+
+  }
 }

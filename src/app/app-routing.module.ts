@@ -11,6 +11,7 @@ import {ReadSubjectComponent} from "./pages/subject/read-subject/read-subject.co
 import {UpdateStudentComponent} from "./pages/student/update-student/update-student.component";
 import {DeleteStudentComponent} from "./pages/student/delete-student/delete-student.component";
 import {ListByCityNameComponent} from "./pages/school/list-by-city-name/list-by-city-name.component";
+import {AboutSchoolsComponent} from "./pages/aboutSchools/about-schools/about-schools.component";
 
 export const routes: Routes = [
   {
@@ -60,6 +61,10 @@ export const routes: Routes = [
   {
     path:'read-subject', component:
     ReadSubjectComponent
+  },
+  {
+    path:'about-schools', component:
+    AboutSchoolsComponent
   }
 ];
 

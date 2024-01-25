@@ -24,6 +24,7 @@ import { ListAllSchoolsComponent } from './pages/school/list-all-schools/list-al
 import { ListAllCitiesComponent } from './pages/city/list-all-cities/list-all-cities.component';
 import {MatCardModule} from "@angular/material/card";
 import { ListByCityNameComponent } from './pages/school/list-by-city-name/list-by-city-name.component';
+import { AboutSchoolsComponent } from './pages/aboutSchools/about-schools/about-schools.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { ListByCityNameComponent } from './pages/school/list-by-city-name/list-b
     ListAllSchoolsComponent,
     ListAllCitiesComponent,
     ListByCityNameComponent,
+    AboutSchoolsComponent,
 
   ],
   imports: [

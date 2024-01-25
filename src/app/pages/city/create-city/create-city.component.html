@@ -1,1 +1,25 @@
-<p>create-city works!</p>
+<div class="card" >
+    <div>
+        <h2 *ngIf="!city">Cadastrar Cidade</h2>
+        <h2 *ngIf="city">Actualizar Cidade</h2>
+    </div>
+    <form class="row-cols-1" [formGroup]="formCity">
+        <div class="col-md-12">
+            <label class="form-label">Nome</label>
+            <input type="text" class="form-control" placeholder="Maputo..."  formControlName="name">
+        </div>
+<!--        <div class="col-md-12">-->
+<!--            <label class="form-label" >Número de Escolas</label>-->
+<!--            <input type="text" class="form-control"   formControlName="numberOfSchools">-->
+<!--        </div>-->
+        <div class="col-12">
+            <!--      <button type="submit" class="btn btn-primary" (click)="create()"> criar</button>-->
+            <button type="submit"  [disabled]="formCity.invalid" class="btn btn-primary botao" (click)="create()">
+                <span *ngIf="!city">Criar</span>
+              <span *ngIf="city">Actualizar</span>
+            </button>
+            <button type="submit" class="btn btn-danger" (click)="cancel()"> cancelar</button>
+        </div>
+    </form>
+</div>
+

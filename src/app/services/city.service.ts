@@ -30,4 +30,20 @@ export class CityService {
     return this.httClient.get<City>(`${API_URL}/City/Name/${city}`)
   }
 
+  createCity (city: City){
+    const option = {headers: new HttpHeaders({
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type' : 'application/json'
+      })}
+    return this.httClient.post<City>(`${API_URL}/City`, city, option)
+  }
+
+  edit(city: City){
+    const option = {headers: new HttpHeaders({
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      })}
+    return this.httClient.put<City>(`${API_URL}/City/${city.id}`,city, option)
+  }
+
 }

@@ -5,6 +5,7 @@ import {Student} from "../../../models/student";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {CreateStudentComponent} from "../create-student/create-student.component";
 import {DeleteStudentComponent} from "../delete-student/delete-student.component";
+import {DeleteSubjectComponent} from "../../subject/delete-subject/delete-subject.component";
 
 @Component({
   selector: 'app-list-all-students',
@@ -18,6 +19,7 @@ export class ListAllStudentsComponent implements OnInit{
 
   private dialogRef!: MatDialogRef<any>;
   listStudents!:  Student[];
+  private studentId!: number
 
 
   ngOnInit(): void {
@@ -35,9 +37,9 @@ export class ListAllStudentsComponent implements OnInit{
   }
 
   onDelete(student: Student) {
+    this.studentId = student.id;
     const dialogRef = this.dialog.open(DeleteStudentComponent);
-    // this.dialogRef.componentInstance.student = student
-    // this.dialogRef.componentInstance.studentId = student.id
+    dialogRef.componentInstance.studentId= this.studentId
 
     dialogRef.afterClosed().subscribe((x ) => {
       if (x){

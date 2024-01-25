@@ -20,7 +20,8 @@ export class CreateSchoolComponent implements OnInit {
   constructor(private router: Router,
               private formBuilder: FormBuilder,
               private schoolService: SchoolService,
-              private cityService: CityService) {
+              private cityService: CityService,
+              private modalRef: MatDialogRef<any>) {
   }
    @Input() city!: number;
   formSchool!: FormGroup;
@@ -29,30 +30,20 @@ export class CreateSchoolComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log(this.city)
-    this.getCities();
+    this.getCities()
+    // console.log(this.city)
     if (this.formSchool) {
       this.formSchool = new FormGroup({
         id: new FormControl(this.school.id),
         name: new FormControl(this.school.name, Validators.required),
         cityId: new FormControl(this.school.cityId,  Validators.required)
       })
-    } else{
-      if (this.city){
-        this.formSchool = new FormGroup({
-          name: new FormControl('', Validators.required),
-          cityId: new FormControl(this.city, Validators.required),
-        })
-      }
-      else {
+    } else {
         this.formSchool = new FormGroup({
           name: new FormControl('', Validators.required),
           cityId: new FormControl('', Validators.required),
         })
       }
-    }
-
-
   }
 
   create() {
@@ -62,22 +53,22 @@ export class CreateSchoolComponent implements OnInit {
       this.schoolService.edit(this.formSchool.value).subscribe()
     }
     else {
-      this.schoolService.createSchool(this.formSchool.value).subscribe()
+        this.schoolService.createSchool(this.formSchool.value).subscribe()
     }
-  }
-
-  cancel() {
-
+    this.modalRef.close("true")
   }
 
   getCities(){
     this.cityService.readAll().subscribe(value => {
-      if(value){
+      if (value){
         this.cities=value;
       }
     })
-
   }
+  cancel() {
+    this.modalRef.close(false)
+  }
+
 
 }
 

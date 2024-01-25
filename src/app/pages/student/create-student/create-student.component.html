@@ -1,4 +1,3 @@
-<!--<script src="create-student.component.ts"></script>-->
 <div class="card" >
   <div>
     <h2 *ngIf="student">Actualizar Aluno</h2>
@@ -20,7 +19,7 @@
     </div>
     <div class="col-12">
 <!--      <button type="submit" class="btn btn-primary" (click)="create()"> criar</button>-->
-      <button type="submit"  [disabled]="formStudent.invalid" class="btn btn-primary botao" (click)="create()">
+      <button type="submit"  [disabled]="formStudent.invalid" class="btn btn-primary " (click)="create()">
         <span *ngIf="!student" >Criar</span>
         <span *ngIf="student" >Actualizar</span>
       </button>

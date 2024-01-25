@@ -20,7 +20,8 @@ export class CreateStudentComponent implements OnInit{
   constructor(private studentService: StudentService,
               private router: Router,
               private formBuilder: FormBuilder,
-              private schoolService: SchoolService) {
+              private schoolService: SchoolService,
+              private modalRef: MatDialogRef<any>) {
   }
 
   formStudent!: FormGroup;
@@ -55,6 +56,7 @@ export class CreateStudentComponent implements OnInit{
     else {
       this.studentService.createStudent(this.formStudent.value).subscribe()
     }
+    this.modalRef.close("true")
   }
 
   getSchools(){
@@ -67,8 +69,9 @@ export class CreateStudentComponent implements OnInit{
   }
 
   cancel() {
+    this.modalRef.close(false);
 
-    this.router.navigate(['/list-all-students']);
+    // this.router.navigate(['/list-all-students']);
 
   }
 }

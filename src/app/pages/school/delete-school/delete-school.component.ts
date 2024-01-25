@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatDialogRef} from "@angular/material/dialog";
 import {catchError, map, of} from "rxjs";
@@ -18,9 +18,10 @@ export class DeleteSchoolComponent {
               private modalRef: MatDialogRef<any>) {
   }
 
+  @Input() schoolId!: number
   school!: School
   delete() {
-    this.schoolService.deleteSchool(this.school.id)
+    this.schoolService.deleteSchool(this.schoolId)
       .pipe(
         map(() => this.cancel()),
         catchError(x => of(x))

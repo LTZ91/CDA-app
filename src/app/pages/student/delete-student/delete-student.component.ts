@@ -19,11 +19,10 @@ export class DeleteStudentComponent {
               private modalRef: MatDialogRef<any>) {
   }
 
-  studentId!: number
+  @Input() studentId!: number
   student!: Student
   delete() {
-      // this.studentService.deleteStudent(this.studentId).subscribe()
-      this.studentService.deleteStudent(this.student.id)
+      this.studentService.deleteStudent(this.studentId)
         .pipe(
           map(() => this.cancel()),
           catchError(x => of(x))

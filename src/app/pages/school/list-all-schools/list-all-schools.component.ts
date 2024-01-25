@@ -5,6 +5,7 @@ import {SchoolService} from "../../../services/school.service";
 import {School} from "../../../models/school";
 import {CreateSchoolComponent} from "../create-school/create-school.component";
 import {DeleteSchoolComponent} from "../delete-school/delete-school.component";
+import {DeleteStudentComponent} from "../../student/delete-student/delete-student.component";
 
 @Component({
   selector: 'app-list-all-schools',
@@ -19,6 +20,7 @@ export class ListAllSchoolsComponent implements OnInit {
 
   private dialogRef!: MatDialogRef<any>;
   listSchools!: School[];
+  private schoolId!: number;
 
 
   ngOnInit(): void {
@@ -34,7 +36,9 @@ export class ListAllSchoolsComponent implements OnInit {
   }
 
   onDelete(school: School) {
+    this.schoolId = school.id;
     const dialogRef = this.dialog.open(DeleteSchoolComponent);
+    dialogRef.componentInstance.schoolId= this.schoolId
 
     dialogRef.afterClosed().subscribe((x ) => {
       if (x){

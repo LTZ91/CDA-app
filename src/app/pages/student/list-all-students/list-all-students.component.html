@@ -5,9 +5,11 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Nome</th>
+      <th scope="col">Idade</th>
       <th scope="col">Escola</th>
       <th scope="col">Cidade</th>
       <th scope="col">Média</th>
+      <th scope="col">Situação</th>
       <th scope="col">Acções</th>
     </tr>
     </thead>
@@ -15,9 +17,11 @@
     <tr *ngFor="let student of listStudents ">
       <td>{{student.id}}</td>
       <td>{{student.name}}</td>
+      <td>{{student.age}}</td>
       <td>{{student.school}}</td>
       <td>{{student.city}}</td>
       <td>{{student.averageMark}}</td>
+      <td>{{student.situation}}</td>
       <th><span  type="button" class="material-icons edit"
                  (click)="onEdit(student)">
       edit

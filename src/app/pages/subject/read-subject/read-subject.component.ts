@@ -19,6 +19,7 @@ export class ReadSubjectComponent implements OnInit{
                private router: Router,
                public dialog: MatDialog){}
 
+  private subjectId!: number
   private dialogRef!: MatDialogRef<any>;
   listSubjects!: Subject[];
 
@@ -36,10 +37,9 @@ export class ReadSubjectComponent implements OnInit{
   }
 
   onDelete(subject: Subject) {
+    this.subjectId = subject.id;
     const dialogRef = this.dialog.open(DeleteSubjectComponent);
-    // this.dialogRef.componentInstance.student = student
-    // this.dialogRef.componentInstance.studentId = student.id
-
+    dialogRef.componentInstance.subjectId= this.subjectId
     dialogRef.afterClosed().subscribe((x ) => {
       if (x){
         this.subjectService.deleteSubject(subject.id).subscribe()

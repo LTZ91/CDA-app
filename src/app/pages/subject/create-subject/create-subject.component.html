@@ -15,7 +15,7 @@
                 <span *ngIf="!subject" >Criar</span>
                 <span *ngIf="subject" >Actualizar</span>
             </button>
-            <button type="submit" class="btn btn-danger" > cancelar</button>
+            <button type="submit" class="btn btn-danger" (click)="cancel()"> cancelar</button>
         </div>
     </form>
 </div>
