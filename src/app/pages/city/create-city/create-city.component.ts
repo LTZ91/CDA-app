@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import {SubjectService} from "../../../services/subject.service";
 import {Router} from "@angular/router";
-import {Subject} from "../../../models/subject";
 import {CityService} from "../../../services/city.service";
 import {City} from "../../../models/city";
 import {MatDialogRef} from "@angular/material/dialog";
@@ -39,7 +37,6 @@ export class CreateCityComponent  implements OnInit{
   }
 
   create() {
-
     console.log(this.formCity.value)
     if (this.formCity.value){
       this.cityService.edit(this.formCity.value).subscribe()

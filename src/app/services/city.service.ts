@@ -46,4 +46,13 @@ export class CityService {
     return this.httClient.put<City>(`${API_URL}/City/${city.id}`,city, option)
   }
 
+  deleteCity(id: number){
+    const option = {headers: new HttpHeaders({
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      })}
+
+    return this.httClient.delete<City>(`${API_URL}/City/${id}`, option)
+  }
+
 }

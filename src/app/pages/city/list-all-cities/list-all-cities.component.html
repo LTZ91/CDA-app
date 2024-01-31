@@ -1,15 +1,21 @@
 <div class="">
   <h2 class="h2" style="margin-left: 5%;">Escolha uma Cidade</h2>
     <div class="cardGroup">
-        <div class="card" style="width: 12rem;"  *ngFor="let city of listCities">
-          <div class="card-body"  routerLink="/list-by-city-name/{{city.name}}">
-            <h2 class="card-title">{{city.name}}</h2>
+        <div class="card" style="width: 200px; margin-left: 15%"  *ngFor="let city of listCities">
+<!--          <h3 class="card-title">{{city.name}}</h3>-->
+          <img src="../../../assets/ponteiro.png" class="card-img-top" alt="card top img"
+               style="" routerLink="/list-by-city-name/{{city.name}}">
+          <div class="card-body">
+            <a routerLink="/list-by-city-name/{{city.name}}">
+              <h3 class="card-title">{{city.name}}</h3>
+            </a>
+            <small>Number of schools:  </small>
             <small>{{city.numberOfSchools}}</small>
             <small style="padding-left: 120px">
-              <span  type="button" class="material-icons edit" style=" font-size: 15px" (click)="edit(city)">
+              <span  type="button" class="material-icons edit" style=" font-size: 20px; color: cornflowerblue;" (click)="edit(city)">
       edit
     </span>
-              <span type="button" class="material-icons delete " style=" font-size: 15px" (click)="delete()" >
+              <span type="button" class="material-icons delete " style=" font-size: 20px; color: red" (click)="delete(city)" >
         delete
       </span>
             </small>
@@ -20,35 +26,4 @@
         <span class="material-icons">add</span>
     </div>
 </div>
-
-<!--<div class="container">-->
-<!--  <div class="row ">-->
-<!--    <div class="col-lg-6">-->
-<!--      <div class="card l-bg-cherry" *ngFor="let city of listCities">-->
-<!--        <div class="card-statistic-3 p-4">-->
-<!--          <div class="card-icon card-icon-large"><i class="fas fa-shopping-cart"></i></div>-->
-<!--          <div class="mb-4">-->
-<!--            <h2 class="card-title mb-0">New Orders</h2>-->
-<!--          </div>-->
-<!--          <div class="row align-items-center mb-2 d-flex">-->
-<!--            <div class="col-8">-->
-<!--              <h2 class="d-flex align-items-center mb-0">-->
-<!--                3,243-->
-<!--              </h2>-->
-<!--            </div>-->
-<!--            <div class="col-4 text-right">-->
-<!--              <span>12.5% <i class="fa fa-arrow-up"></i></span>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="progress mt-1 " data-height="8" style="height: 8px;">-->
-<!--            <div class="progress-bar l-bg-cyan" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
-
-
 

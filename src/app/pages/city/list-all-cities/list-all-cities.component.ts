@@ -8,6 +8,9 @@ import {CreateStudentComponent} from "../../student/create-student/create-studen
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {CreateCityComponent} from "../create-city/create-city.component";
 import {CreateSchoolComponent} from "../../school/create-school/create-school.component";
+import {Student} from "../../../models/student";
+import {DeleteStudentComponent} from "../../student/delete-student/delete-student.component";
+import {DeleteCityComponent} from "../delete-city/delete-city.component";
 
 @Component({
   selector: 'app-list-all-cities',
@@ -28,23 +31,27 @@ export class ListAllCitiesComponent implements OnInit{
   formCity!: FormGroup;
   city!: City;
   listCities!: City[];
+  private cityId!: number
+
 
   ngOnInit(): void {
 
-    this.getCity()
-      this.formCity = new FormGroup({
-        name: new FormControl('', Validators.required),
+
+      this.cityService.readAll().subscribe(value => {
+          if(value){
+              this.listCities=value;
+          }
       })
   }
 
-  getCity(){
-    this.cityService.readAll().subscribe(value => {
-      if(value){
-        this.listCities=value;
-      }
-    })
-
-  }
+  // getCity(){
+  //   this.cityService.readAll().subscribe(value => {
+  //     if(value){
+  //       this.listCities=value;
+  //     }
+  //   })
+  //
+  // }
   next() {
     console.log(this.formCity.value);
     this.router.navigate(['/home'])
@@ -58,10 +65,23 @@ export class ListAllCitiesComponent implements OnInit{
 
   edit(city: City) {
     const modalRef = this.dialog.open(CreateCityComponent)
-    modalRef.componentInstance.city = city;
+    modalRef.componentInstance.city= city;
   }
 
-  delete() {
+  delete(city: City) {
+    this.cityId= city.id;
+    const dialogRef = this.dialog.open(DeleteCityComponent);
+    dialogRef.componentInstance.cityId= this.cityId
 
+    dialogRef.afterClosed().subscribe((x ) => {
+      if (x){
+        this.cityService.deleteCity(city.id).subscribe()
+      }
+      else {
+        console.log('cancelado')
+      }
+    })
   }
+
+
 }

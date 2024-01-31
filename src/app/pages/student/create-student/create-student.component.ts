@@ -65,13 +65,10 @@ export class CreateStudentComponent implements OnInit{
         this.allSchools=value;
       }
     })
-
   }
 
   cancel() {
     this.modalRef.close(false);
-
-    // this.router.navigate(['/list-all-students']);
 
   }
 }
