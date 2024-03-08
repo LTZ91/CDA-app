@@ -37,11 +37,13 @@ export class CreateStudentComponent implements OnInit{
       this.formStudent = new FormGroup({
         id: new FormControl(this.student.id),
         name: new FormControl(this.student.name, Validators.required),
+        age: new  FormControl(this.student.age, Validators.required),
         schoolId: new FormControl(this.student.schoolId, Validators.required)
       })
     }else{
       this.formStudent = new FormGroup({
         name: new FormControl('', Validators.required),
+        age: new  FormControl('', Validators.required),
         schoolId: new FormControl('', Validators.required),
       })
     }

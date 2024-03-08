@@ -10,6 +10,10 @@
       <input type="text" class="form-control" placeholder="Maria Luz"  formControlName="name">
     </div>
     <div class="col-md-12">
+      <label class="form-label" >Idade</label>
+      <input type="text" class="form-control" placeholder="idade"  formControlName="age">
+    </div>
+    <div class="col-md-12">
       <label  class="form-label" >Escola</label>
       <select formControlName="schoolId" class="form-select">
         <option *ngFor="let school of allSchools" [value]="school.id">

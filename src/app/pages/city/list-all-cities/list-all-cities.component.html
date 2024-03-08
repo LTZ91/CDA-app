@@ -1,8 +1,7 @@
 <div class="">
   <h2 class="h2" style="margin-left: 5%;">Escolha uma Cidade</h2>
     <div class="cardGroup">
-        <div class="card" style="width: 200px; margin-left: 15%"  *ngFor="let city of listCities">
-<!--          <h3 class="card-title">{{city.name}}</h3>-->
+        <div class="card" style="width: 200px; margin-left: 15%" *ngFor="let city of listCities">
           <img src="../../../assets/ponteiro.png" class="card-img-top" alt="card top img"
                style="" routerLink="/list-by-city-name/{{city.name}}">
           <div class="card-body">

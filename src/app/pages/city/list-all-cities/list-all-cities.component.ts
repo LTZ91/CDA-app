@@ -82,6 +82,4 @@ export class ListAllCitiesComponent implements OnInit{
       }
     })
   }
-
-
 }

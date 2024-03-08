@@ -55,4 +55,6 @@ export class ListAllStudentsComponent implements OnInit{
  this.dialog.open(CreateStudentComponent);
     // this.router.navigate(['/create-student'])
   }
+
+
 }
